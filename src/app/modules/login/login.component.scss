@@ -1,0 +1,38 @@
+:host {
+    .loginform {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primary);
+        color: var(--text-default);
+        form {
+            flex-basis: 25%;
+            background-color: var(--secondary);
+            padding: 2rem;
+            display: flex;
+            flex-flow: column nowrap;
+            box-shadow: 0px 0px 10px 0px var(--info);
+            > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0.5rem 0;
+                label {
+                    flex-basis: 30%;
+                    i { color: red; }
+                }
+                input {
+                    flex-grow: 1;
+                }
+            }
+            .invalid-field {
+                color: #ccc;
+                font-size: 0.8rem;
+                background: maroon;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+<section>
+    <div class="search-bar">
+        <input type="search"
+               #searchField 
+               id="search-repos" 
+               placeholder="Key in for Repositories"
+               (keyup)="searchTerm$.next(searchField.value)" />
+    </div>
+    <div *ngIf="totalCount$ | async">Total Repositories : {{ totalCount$ | async }}</div>
+    <div class="repo-list">
+        <ul infinite-scroll
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="50"
+        (scrolled)="onScrollDown()">
+            <li class="repo-item" *ngFor="let repo of (repos$ | async)" (click)="showDetails(repo)">
+                <span class="repo-name">{{ repo.full_name }}</span>
+                <span class="repo-description">{{ repo.description }}</span>
+            </li>
+        </ul>
+       
+        <div class="loader" *ngIf="(loading$ | async)">
+            <span class="spinner"></span>
+            Loading Repositories
+        </div>
+    </div>
+</section>

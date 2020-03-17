@@ -1,0 +1,135 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+@mixin border-radius($val) {
+  -moz-border-radius: $val;
+  -webkit-border-radius: $val;
+  border-radius: $val;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: monospace;
+}
+
+:root {
+  --primary: #2c3e50;
+  --secondary: #34495e;
+  --success: #27ae60;
+  --danger: #e74c3c;
+  --warn: #f39c12;
+  --info: #2980b9;
+  --text-default: #ccc;
+  --dark: #2d3436;
+  --grey: #7f8c8d;
+  --white: #fff;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+input {
+  @include border-radius(5px);
+  padding: 0.5rem;
+  border: none;
+  background-color: var(--white);
+  color: var(--dark);
+}
+
+button {
+  border: none;
+  color: #ccc;
+  padding: 0.5rem 2rem;
+  @include border-radius(5px);
+  cursor: pointer;
+
+  &.success {
+    background-color: var(--success);
+  }
+
+  &.danger {
+    background-color: var(--danger);
+  }
+
+  &.primary {
+    background-color: var(--primary);
+  }
+
+  &.info {
+    background-color: var(--info);
+  }
+
+  &:disabled {
+    background: grey;
+    cursor: not-allowed;
+  }
+}
+
+.spinner {
+  color: #fff;
+  &::before {
+    content: '\21BB';
+  }
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+
+@-webkit-keyframes rotating
+
+/* Safari and Chrome */
+  {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+
+::-webkit-scrollbar {
+  background: var(--primary);
+  width: 0.7rem;
+  @include border-radius(10px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--info);
+  @include border-radius(10px);
+}

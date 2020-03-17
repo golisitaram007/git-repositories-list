@@ -1,0 +1,21 @@
+:host {
+    main {
+        display: flex;
+        flex-flow: column nowrap;
+
+        header {
+            height: 3.5rem;
+            background-color: var(--secondary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-default);
+            font-size: 2rem;
+        }
+        section {
+            flex-grow: 1;
+            background-color: var(--text-default);
+            height: calc(100vh - 3.5rem);
+        }
+    }
+}

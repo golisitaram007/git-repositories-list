@@ -1,0 +1,19 @@
+<section>
+    <button class="info" (click)="location.back()">Repository Search Page</button>
+    <ng-container *ngIf="(repo$ | async) as repo; else elseNoRepo">
+        <article class="detail-info">
+            <label>{{ repo.full_name }}</label>
+            <div class="description">{{ repo.description }}</div>
+            <div class="additional-info">
+                <span>Star: <span class="badge">&#9733;  {{ repo.watchers }}</span></span>
+                <span>Fork: <span class="badge">&#8627;  {{ repo.forks }}</span></span>
+                <button (click)="goToRepo(repo)" class="primary">Go to Repo</button>
+            </div>
+        </article>
+    </ng-container>
+    <ng-template #elseNoRepo>
+        <article class="noDetails">
+            <p>No Repository to show, go to search page</p>
+        </article>
+    </ng-template>
+</section>
