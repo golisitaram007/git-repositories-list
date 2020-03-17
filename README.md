@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Project Setup
 
-### rerequisite
+### Prerequisite
     Require `npm` to install this project.
 1. Git clone this project repository ([Git Repositories List](https://github.com/golisitaram007/git-repositories-list.git))
 2. Go to project directory and run `npm install`.
