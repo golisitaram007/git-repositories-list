@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import * as fromStore from './store';
 import { EffectsModule } from '@ngrx/effects';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { EffectsModule } from '@ngrx/effects';
     StoreDevtoolsModule.instrument({
       maxAge: 20,
       logOnly: environment.production
-    })
+    }),
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

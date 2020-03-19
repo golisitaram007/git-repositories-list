@@ -22,3 +22,8 @@ export const getTotalCount = createSelector(selectRepo, (state: repo.RepoState) 
 export const getSelectedRepo = createSelector(selectRepo, (state: repo.RepoState) => state.selectedRepo);
 export const isReposLoading = createSelector(selectRepo, (state: repo.RepoState) => state.loading);
 export const isReposLoaded = createSelector(selectRepo, (state: repo.RepoState) => state.loaded);
+
+export const getEntity = createSelector(selectRepo, (state: repo.RepoState) => state.dataEntity);
+
+export const getSearch = createSelector(getEntity, (state: repo.Entity) => state.search);
+export const getPage = createSelector(getEntity, (state: repo.Entity) => state.page);

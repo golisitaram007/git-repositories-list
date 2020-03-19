@@ -4,14 +4,15 @@
                #searchField 
                id="search-repos" 
                placeholder="Key in for Repositories"
-               (keyup)="searchTerm$.next(searchField.value)" />
+               (keydown)="searchTerm$.next(searchField.value)" />
     </div>
     <div *ngIf="totalCount$ | async">Total Repositories : {{ totalCount$ | async }}</div>
     <div class="repo-list">
-        <ul infinite-scroll
+        <ul infiniteScroll
         [infiniteScrollDistance]="2"
         [infiniteScrollThrottle]="50"
-        (scrolled)="onScrollDown()">
+        (scrolled)="onScroll()"
+        [scrollWindow]="false">
             <li class="repo-item" *ngFor="let repo of (repos$ | async)" (click)="showDetails(repo)">
                 <span class="repo-name">{{ repo.full_name }}</span>
                 <span class="repo-description">{{ repo.description }}</span>

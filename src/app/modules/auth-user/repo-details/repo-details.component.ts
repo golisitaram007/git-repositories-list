@@ -1,11 +1,11 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Repo } from 'src/app/models/gitRepo.model';
+import { Repo } from './../../../models/gitRepo.model';
 import { Store } from '@ngrx/store';
-import * as fromStore from 'src/app/store';
-import { RepoState } from 'src/app/store/reducers/repo.reducer';
+import * as fromStore from './../../../store';
+import { RepoState } from './../../../store/reducers/repo.reducer';
 
 
 @Component({
@@ -15,10 +15,9 @@ import { RepoState } from 'src/app/store/reducers/repo.reducer';
 })
 export class RepoDetailsComponent implements OnInit {
 
-  repo$;
+  repo$: Observable<Repo>;
 
   constructor(
-    private route: ActivatedRoute,
     private store: Store<RepoState>,
     private location: Location
   ) { }
